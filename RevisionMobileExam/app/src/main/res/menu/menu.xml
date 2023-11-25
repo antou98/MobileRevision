@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_chalet"
+            android:icon="@drawable/baseline_chalet_24"
+            android:title="Chalet">
+        </item>
+
+        <item
+            android:id="@+id/nav_gay"
+            android:icon="@drawable/baseline_boy_24"
+            android:title="BoyGay">
+        </item>
+
+
+
+    </group>
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/dick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Log Out" />
+
+        </menu>
+    </item>
+
+</menu>
