@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +40,12 @@ public class Fragment1 extends Fragment {
         Log.i("data",st.toString());
         textView.setText(st);
             }
+
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageViewId);
+
+        translateAnim(imageView);
+
+
 
 
         // Inflate the layout for this fragment
@@ -78,6 +87,32 @@ public class Fragment1 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    public void translateAnim(ImageView imageView){
+        Animation transAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.translate);
+        transAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        imageView.setOnClickListener(v->{
+            imageView.startAnimation(transAnimation);
+        });
+
+
     }
 
     //DE BASE ////////////////////////////////////////////////////

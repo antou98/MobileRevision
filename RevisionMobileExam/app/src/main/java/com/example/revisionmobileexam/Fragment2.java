@@ -5,12 +5,18 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.revisionmobileexam.Data.DataBase;
 import com.example.revisionmobileexam.Data.ParcelData;
+import com.example.revisionmobileexam.Data.TableString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +30,24 @@ public class Fragment2 extends Fragment {
     private TextView textView;
 
     private  List<ParcelData> parcelDataList;
+
+    private DataBase dataBase;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        dataBase = new DataBase(getContext());
+
+        dataBase.insert(new TableString("test"));
+        Log.i("table string","test");
+        TableString tableString = dataBase.getByID(1);
+
+        if (tableString!=null){
+            Log.i("table string",tableString.toString());
+
+            dataBase.insert(new TableString("test2"));
+
+            dataBase.deleteByID(1);
+        }
 
         View view = inflater.inflate(R.layout.fragment_fragment2, container, false);
 
@@ -46,9 +68,37 @@ public class Fragment2 extends Fragment {
         String st = parcelDataList.get(0).toString()+" "+parcelDataList.get(1).toString();
         textView.setText(st);}
 
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageViewTranslate);
+        imageView.setImageResource(R.drawable.menu_icon);
+        translateAnim(imageView);
         // Inflate the layout for this fragment
         return view;
     }
+
+    public void translateAnim(ImageView imageView){
+        Animation transAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.translate);
+        transAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        imageView.setOnClickListener(v->{
+            imageView.startAnimation(transAnimation);
+        });
+    }
+
 
     public static Fragment2 newInstance(List<ParcelData> parcelData) {
 

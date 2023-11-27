@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -47,6 +48,20 @@
         android:layout_marginEnd="226dp"
         android:layout_marginBottom="478dp"
         android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/imageViewId"
+        android:layout_width="60dp"
+        android:layout_height="53dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="282dp"
+        android:layout_marginBottom="551dp"
+        android:src="@android:drawable/btn_star_big_on" />
 
 
 </RelativeLayout>
